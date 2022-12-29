@@ -39,6 +39,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "add":
       try {
         await addContact(name, email, phone);
+        console.info(`New contact was added`);
       } catch (error) {
         console.error(`Error while adding contact list: ${error}`);
       }
@@ -46,6 +47,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "remove":
       try {
         await removeContact(id);
+        console.info(`Contact with id: ${contactId} was removed`);
       } catch (error) {
         console.error(`Error while removing contact: ${error}`);
       }

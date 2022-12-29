@@ -18,7 +18,6 @@ async function removeContact(contactId) {
   const contactList = await listContacts();
   const newContactList = contactList.filter((item) => item.id !== contactId);
   await fs.writeFile(contactsPath, JSON.stringify(newContactList), "utf-8");
-  console.info(`Contact with id: ${contactId} was removed`);
 }
 
 async function addContact(name, email, phone) {
@@ -26,7 +25,6 @@ async function addContact(name, email, phone) {
   const newContact = { id: uuidv4(), name, email, phone };
   const newContactList = [...contactList, newContact];
   await fs.writeFile(contactsPath, JSON.stringify(newContactList), "utf-8");
-  console.info(`New contact was added`);
 }
 
 module.exports = {
